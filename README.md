@@ -1,5 +1,4 @@
 # USBPets
-# USBPets
 
 **An interactive Pet AI game** — where code meets compassion.
 
