@@ -29,3 +29,18 @@ def pet_dashboard(username):
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
+#Registration Setup
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        new_username = request.form['username']
+        new_pin = request.form['pin']
+
+        if new_username in VALID_USERS:
+            return "Username already exists. Please choose another."
+        else:
+            VALID_USERS[new_username] = new_pin
+            return redirect(url_for('pet_dashboard', username=new_username))
+
+    return render_template("register.html")
