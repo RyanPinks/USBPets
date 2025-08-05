@@ -44,3 +44,8 @@ def register():
             return redirect(url_for('pet_dashboard', username=new_username))
 
     return render_template("register.html")
+
+#Render Landing Page
+@app.route('/pet/<username>')
+def pet_dashboard(username):
+    return render_template("pet_dashboard.html", username=username)
